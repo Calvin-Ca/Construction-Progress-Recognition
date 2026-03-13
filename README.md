@@ -1,21 +1,19 @@
 # Construction-Progress-Recognition
-## 项目背景
-### 工程建设包括基础施工、主体结构施工（***）、外立面及围护结构施工（墙体、门窗、屋面）、室内装修及机电安装
-### 施工图片中很多步骤视觉上相似，但对应进度不同
-
-## 项目目标
-### 在传统施工管理中，施工进度统计主要依赖人工巡检和手工记录，存在以下问题：
-### 实时性差：进度信息更新滞后，难以及时发现施工延误。
-### 效率低：高层建筑或大型工程需要大量人工巡检，耗时耗力。
-### 主观性强：人工记录易产生误差，缺乏统一标准。
-### 数据不可追溯：纸质或 Excel 记录难以做历史分析或可视化。
-
-## 方案-多阶段进度识别
-### 一次识别：对于特征明显、出现频率高的施工步骤，通过高准确度 图像匹配 获取粗粒度进度输出
-### 二次识别：vLLM 进度微调，得到细粒度进度输出，上传至项目管理平台
-
-## 技术栈
-### 图像\标注存储 --> MinIO
-### 向量储存 --> Milvus
-### 相似度检索 --> ResNet
-### 进度优化 --> vLLM
+## Project Background
+Covers construction phases: foundation, main structure, exterior/enclosure (walls, doors & windows, roof), and interior finishing & MEP installation.
+Many construction steps look visually similar in images but correspond to different progress stages.
+## Project Goals
+Traditional construction progress tracking relies on manual inspection and record-keeping, which has several limitations:
+Delayed updates: Hard to detect construction delays in real time.
+Low efficiency: Manual inspections are time-consuming for high-rise or large-scale projects.
+Subjective records: Human error and inconsistent standards.
+Poor traceability: Paper or Excel records are difficult to analyze historically or visualize.
+## Solution – Multi-Stage Progress Recognition
+Stage 1 – Coarse-grained recognition
+High-frequency, distinctive construction steps are identified via high-accuracy image matching to provide a rough progress estimate.
+Stage 2 – Fine-grained recognition
+vLLM fine-tunes the progress estimation for precise output, which is automatically uploaded to the project management platform.
+## Tech Stack
+Image & annotation storage → MinIO
+Vector storage & retrieval → Milvus + ResNet
+Progress optimization → vLLM
